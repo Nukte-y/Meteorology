@@ -1,0 +1,9 @@
+
+.weather-header {
+background: linear-gradient(to right,#3568ea, #200078 );
+}
+
+.input-group {
+display: flex;
+flex-direction: column;
+}
