@@ -1,7 +1,10 @@
 var storageArray=[];
 if(localStorage.length!==0){
   storageArray=JSON.parse(localStorage.getItem("storageArray"));  //getting stored array
-  console.log(storageArray);
+    for(i=0;i<storageArray.length;i++){
+      $("<button>").text(storageArray[i]).appendTo("#history");
+    }
+
 }
 
 
