@@ -71,6 +71,7 @@ function search(input){
             }
           ];
           renderToday(weather);
+          render5Days(weather);
           // console.log(res); // promise
         })
       })
@@ -82,6 +83,19 @@ function iconSearch(code){
   return iconImg;
 }
 
+function weatherBody(index,array,option){
+  let dateData=array[index].date.replace(/-/g,"/");
+  let iconData=iconSearch(array[index].icon);
+  let tempData=$("<div>").text(`Temp: ${array[index].Temp}°C `).addClass("weather-text");
+  let windData=$("<div>").text(`Wind: ${array[index].Wind} KPH `).addClass("weather-text");
+  let humidData=$("<div>").text(`Humidity: ${array[index].humidity} % `).addClass("weather-text");
+  let weatherData=$("<div>").append(tempData,windData,humidData);
+  if(option===1){
+    return weatherData;}
+    else {
+      return weatherData.prepend(dateData,iconData);
+    }
+}
 
 function renderToday(array){
   $("#today").empty();          //clear html before display another city
@@ -89,17 +103,17 @@ function renderToday(array){
   let iconEl=iconSearch(array[1].icon);
   let currentWeather=$("<div>").appendTo("#today").addClass("current-weather");
   let weatherHeader=$("<h3>").text(`${array[0].cityname} (${dateEl})`).append(iconEl);
-  let currentTemp=$("<div>").text(`Temp: ${array[1].Temp}°C `).addClass("weather-text");
-  let currentWind=$("<div>").text(`Wind: ${array[1].Wind} KPH `).addClass("weather-text");
-  let currentHumid=$("<div>").text(`Humidity: ${array[1].humidity} % `).addClass("weather-text");
-  currentWeather.append(weatherHeader,currentTemp,currentWind,currentHumid);
+  currentWeather.append(weatherHeader,weatherBody(1,array,1));
 }
 
-function render5Days(data){
-  //process data object and render
-  return;
+function render5Days(array){           //process data object and render
+  let container=$("<div>").appendTo("#forecast");
+  let containerHeader=$("<h4>").text("5-Day Forecast").appendTo(container);
+  let containerBody=$("<div>").appendTo(container).css("display","flex");
+      for (let i = 2; i <array.length; i++) {
+        weatherBody(i,array).appendTo(containerBody)
+      }
 }
-
 
 $("#search-button").on("click",function (event) {
   event.preventDefault();
