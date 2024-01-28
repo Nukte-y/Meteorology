@@ -84,7 +84,7 @@ function iconSearch(code){
 }
 
 function weatherBody(index,array,option){
-  let dateData=array[index].date.replace(/-/g,"/");
+  let dateData=$("<span>").text(array[index].date.replace(/-/g,"/")).addClass("date-text");
   let iconData=iconSearch(array[index].icon);
   let tempData=$("<div>").text(`Temp: ${array[index].Temp}°C `).addClass("weather-text");
   let windData=$("<div>").text(`Wind: ${array[index].Wind} KPH `).addClass("weather-text");
@@ -107,11 +107,11 @@ function renderToday(array){
 }
 
 function render5Days(array){           //process data object and render
-  let container=$("<div>").appendTo("#forecast");
-  let containerHeader=$("<h4>").text("5-Day Forecast").appendTo(container);
-  let containerBody=$("<div>").appendTo(container).css("display","flex");
+  let container=$("<div>").appendTo("#forecast").css("padding","0px");
+  let containerHeader=$("<h4>").text("5-Day Forecast").appendTo(container).css({"font-weight":"bold","font-size": "19px"});
+  let containerBody=$("<div>").appendTo(container).addClass("container-body");
       for (let i = 2; i <array.length; i++) {
-        weatherBody(i,array).appendTo(containerBody)
+        weatherBody(i,array).appendTo(containerBody).addClass("container-bodyEl")
       }
 }
 

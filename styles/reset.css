@@ -20,10 +20,12 @@ width: 100%;
 width:100%;
 border-radius: 0.375rem;
 padding: 10px;
+border-top-right-radius: 1px;
+border-bottom-right-radius: 1px;
 }
 .search-button{
 background-color:rgb(80,152,230);
-color: white;
+color: #FCFCFC;
 margin-right: 0px;
 margin-left: 1px;
 margin-top: 10px;
@@ -45,7 +47,7 @@ border-color: transparent;
 background-color:rgb(174, 174, 174);
 }
 .weather-text {
-font-size: 16px;
+font-size: 14px;
 font-weight: normal;
 margin-top: 0px;
 margin-bottom: 10px;
@@ -63,5 +65,32 @@ font-weight: bold;
 }
 img {
 width: 50px;
-height: auto;    
+height: auto;
+margin:5px;
+margin-left: 10px;    
+}
+
+.container-body{
+display: flex;
+margin-top: 10px;
+flex-direction: row;
+flex-wrap:nowrap;
+margin-left: 0px;
+}
+.container-bodyEl{
+display: flex;
+flex-direction: column;
+background-color: #2D3E50;
+padding-left: 4px;
+padding-right: 45px;
+margin-left: 0px;
+margin-right: 20px;
+color:white;    
+font-size: 13px;
+}
+.date-text{
+margin-top: 5px;
+font-weight: bold;
+margin-left: 3px;
+font-size: 14px;
 }
