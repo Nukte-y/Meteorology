@@ -72,7 +72,6 @@ function search(input){
           ];
           renderToday(weather);
           render5Days(weather);
-          // console.log(res); // promise
         })
       })
 }
@@ -107,6 +106,7 @@ function renderToday(array){
 }
 
 function render5Days(array){           //process data object and render
+  $("#forecast").empty();
   let container=$("<div>").appendTo("#forecast").css("padding","0px");
   let containerHeader=$("<h4>").text("5-Day Forecast").appendTo(container).css({"font-weight":"bold","font-size": "19px"});
   let containerBody=$("<div>").appendTo(container).addClass("container-body");
