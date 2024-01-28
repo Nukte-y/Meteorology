@@ -45,7 +45,23 @@ border-color: transparent;
 background-color:rgb(174, 174, 174);
 }
 .weather-text {
-font-size: 18px;
+font-size: 16px;
 font-weight: normal;
-padding: 8px;
+margin-top: 0px;
+margin-bottom: 10px;
+margin-left: 8px;
+}
+.current-weather{
+border: black solid 1px;
+height: 166px;
+}
+h3 {
+margin-left: 8px;
+margin-bottom: 0px;
+font-size: 25px;
+font-weight: bold;
+}
+img {
+width: 50px;
+height: auto;    
 }
