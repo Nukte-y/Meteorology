@@ -87,7 +87,12 @@ function renderToday(array){
   $("#today").empty();          //clear html before display another city
   let dateEl=array[1].date.replace(/-/g,"/");
   let iconEl=iconSearch(array[1].icon);
-  $("<h2>").appendTo("#today").text(`${array[0].cityname} (${dateEl})`).append(iconEl)
+  let currentWeather=$("<div>").appendTo("#today");
+  let weatherHeader=$("<h2>").text(`${array[0].cityname} (${dateEl})`).append(iconEl);
+  let currentTemp=$("<div>").text(`Temp: ${array[1].Temp}°C `).addClass("weather-text");
+  let currentWind=$("<div>").text(`Wind: ${array[1].Wind} KPH `).addClass("weather-text");
+  let currentHumid=$("<div>").text(`Humidity: ${array[1].humidity} % `).addClass("weather-text");
+  currentWeather.append(weatherHeader,currentTemp,currentWind,currentHumid);
 }
 
 function render5Days(data){
