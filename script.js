@@ -73,6 +73,7 @@ function search(input){
           ];
           renderToday(weather);
           render5Days(weather);
+          $("#search-input").val
         })
       })
 }
@@ -126,7 +127,7 @@ $("#search-button").on("click",function (event) {
   }
   var string=JSON.stringify(storageArray);      //convert array to the string
   localStorage.setItem("storageArray",string);  //add array into localStorage
-  search(input);
+  search(input);         
   }
 );
 
