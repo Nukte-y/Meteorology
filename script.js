@@ -14,7 +14,7 @@ function render(array){                       //render history of searched citie
  }
 }
 function search(input){
-  var locQueryURL="http://api.openweathermap.org/geo/1.0/direct?q="+ input +"&limit=1"+"&appid=d7eab80b6a689fcdafaedb821b3c11eb" 
+  var locQueryURL="https://api.openweathermap.org/geo/1.0/direct?q="+ input +"&limit=1"+"&appid=d7eab80b6a689fcdafaedb821b3c11eb" 
   "&format=json&limit=1" // added limit parameter to limit the results as 1  
     fetch(locQueryURL)
     .then(function(response) {
