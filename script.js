@@ -4,11 +4,12 @@ if(localStorage.length!==0){
   render(storageArray);
 }
 
-function render(array){
+function render(array){                       //render history of searched cities
   $("#history").empty();
   for(i=array.length-1;i>=0;i--){         
-    if(i<7){                    //limited history display
-     $("<button>").text(array[i]).addClass("historyButton").appendTo("#history");
+    if(i<7){                                  //limited history display
+      let upperCaseEl=array[i].charAt(0).toUpperCase()+array[i].slice(1);  //make history buttons start with capital letter
+      $("<button>").text(upperCaseEl).addClass("historyButton").appendTo("#history");
     }
  }
 }
@@ -116,10 +117,11 @@ function render5Days(array){           //process data object and render
 }
 
 $("#search-button").on("click",function (event) {
-  event.preventDefault();
-  let input=$("#search-input").val().trim();   //getting input from user and use it in URL to search and get the related data
+  event.preventDefault();                                   //added lowercase method to be sure if conditon works with case-insensitive 
+  let input=$("#search-input").val().trim().toLowerCase();  //getting input from user and use it in URL to search and get the related data
   if(!storageArray.includes(input)){             //check if the city is already in history
-    storageArray.push(input);                    //add input to the array
+    // storageArray.push(input);                    //add input to the array
+      storageArray.unshift(input);                 //will add from the start, so I can display last searches in history section
     render(storageArray);
   }
   var string=JSON.stringify(storageArray);      //convert array to the string
